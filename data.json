@@ -1,6 +1,6 @@
 {
   "schema": "cwi.catalog-qa/1.0",
-  "built_at": "2026-09-19T08:35:45.866Z",
+  "built_at": "2026-09-19T08:48:16.609Z",
   "sources": {
     "catalog": "https://cumulativewebinc.github.io/cwi-learn/catalog.json",
     "placements": "placement-auto-threads/placements.json"
@@ -50,6 +50,28 @@
       "tier": "catalog-verified",
       "observed_at": "2026-09-14",
       "source": "cwi-learn/catalog.json"
+    },
+    {
+      "id": "track-broken-hearts-club",
+      "keywords": [
+        "broken hearts club",
+        "broken hearts club streams",
+        "broken hearts club plays",
+        "how many streams broken hearts club",
+        "broken hearts club stats",
+        "broken hearts club numbers",
+        "broken hearts club release",
+        "broken hearts club listen",
+        "broken hearts club bpm",
+        "broken hearts club lyrics",
+        "broken hearts club splits",
+        "hearts club"
+      ],
+      "title": "Broken Hearts Club — stream count & verified facts",
+      "text": "“Broken Hearts Club” has 255,301 all-time Spotify streams — the #2 track of 25 in the That Boy Hi Hat catalog (owner-verified, Spotify for Artists owner dashboard, observed 2026-09-17). Released as a single on 2023-05-20, then carried onto “GTA VI (The Logo of Alternative Rap)” and “NO SKIPS (GTA 5 TOP SONGS)”. Black is a co-producer (Qobuz, third-party-verified, observed 2026-09-14). Listen: https://open.spotify.com/track/4WNGxMkp9G2uEbFZDHDyGO\n\nWhat I can't tell you: BPM, key, tempo, moods, lyrics, rights/splits, chart positions, or press coverage — none of those are verified for this track, so I won't guess.",
+      "tier": "owner-verified",
+      "observed_at": "2026-09-17",
+      "source": "spotify-for-artists/owner-dashboard; catalog/spotlight/broken-hearts-club/playlist-pitch-kit.md"
     },
     {
       "id": "placements-zooted-zone",
