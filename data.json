@@ -1,0 +1,198 @@
+{
+  "schema": "cwi.catalog-qa/1.0",
+  "built_at": "2026-09-19T08:35:45.866Z",
+  "sources": {
+    "catalog": "https://cumulativewebinc.github.io/cwi-learn/catalog.json",
+    "placements": "placement-auto-threads/placements.json"
+  },
+  "freshness_rule": "A value is FRESH if observed within 48h; otherwise STALE with its last honest observation date. Timestamps are never manufactured.",
+  "cards": [
+    {
+      "id": "artist-who",
+      "keywords": [
+        "who is that boy hi hat",
+        "who is hi hat",
+        "about the artist",
+        "artist bio",
+        "tell me about that boy"
+      ],
+      "title": "Who is That Boy Hi Hat",
+      "text": "That Boy Hi Hat is an alternative rap / Post-Trap Futurism artist on Cumulative Web Inc. Managed by Henry Pitts (aka Black Lansky). Spotify: https://open.spotify.com/artist/2f9j460EwjfvjYp3trBcb7.",
+      "tier": "catalog-verified",
+      "observed_at": "2026-09-17",
+      "source": "cwi-learn/catalog.json"
+    },
+    {
+      "id": "track-zooted-streams",
+      "keywords": [
+        "zooted zone streams",
+        "zooted zone plays",
+        "how many streams zooted",
+        "zooted zone numbers",
+        "zooted zone stats"
+      ],
+      "title": "Zooted Zone — stream count",
+      "text": "Zooted Zone has 307,439 lifetime Spotify plays (observed 2026-09-14). Note from the catalog: lifetime plays far exceed current monthly listeners — the track converted at playlist scale before.",
+      "tier": "catalog-verified",
+      "observed_at": "2026-09-14",
+      "source": "cwi-learn/catalog.json"
+    },
+    {
+      "id": "artist-listeners",
+      "keywords": [
+        "monthly listeners",
+        "how many listeners",
+        "listener count",
+        "how popular"
+      ],
+      "title": "Monthly listeners",
+      "text": "That Boy Hi Hat had 171 monthly listeners on Spotify (observed 2026-09-14).",
+      "tier": "catalog-verified",
+      "observed_at": "2026-09-14",
+      "source": "cwi-learn/catalog.json"
+    },
+    {
+      "id": "placements-zooted-zone",
+      "keywords": [
+        "zooted zone playlist",
+        "zooted zone placement",
+        "where is zooted zone",
+        "zooted zone on playlist"
+      ],
+      "title": "Zooted Zone — verified playlist placements",
+      "text": "Zooted Zone holds 3 verified placements:\n• “360°: The Best Indie Music” (curator: Eric Alper) — #216 of 216, verified 2026-09-17 by full playlist scan.\n• “New Rap Hits” (curator: Audiartist) — #30 of 140, verified 2026-09-17 by engine collect.\n• “No Label Needed” (curator: Flow) — #21 of 21, verified 2026-09-17 by playlist scan.",
+      "tier": "placement-verified",
+      "observed_at": "2026-09-17",
+      "source": "placement-auto-threads/placements.json"
+    },
+    {
+      "id": "placements-shaka-zulu",
+      "keywords": [
+        "shaka zulu playlist",
+        "shaka zulu placement",
+        "where is shaka zulu",
+        "shaka zulu on playlist"
+      ],
+      "title": "Shaka Zulu — verified playlist placements",
+      "text": "Shaka Zulu holds 1 verified placement:\n• “New Rap Hits” (curator: Audiartist) — #21 of 140, verified 2026-09-17 by engine collect.",
+      "tier": "placement-verified",
+      "observed_at": "2026-09-17",
+      "source": "placement-auto-threads/placements.json"
+    },
+    {
+      "id": "placements-doves-diamonds",
+      "keywords": [
+        "doves diamonds playlist",
+        "doves diamonds placement",
+        "where is doves diamonds",
+        "doves diamonds on playlist"
+      ],
+      "title": "Doves & Diamonds — verified playlist placements",
+      "text": "Doves & Diamonds holds 1 verified placement:\n• “New Rap Hits” (curator: Audiartist) — #31 of 140, verified 2026-09-17 by engine collect.",
+      "tier": "placement-verified",
+      "observed_at": "2026-09-17",
+      "source": "placement-auto-threads/placements.json"
+    },
+    {
+      "id": "placements-all",
+      "keywords": [
+        "all placements",
+        "every placement",
+        "playlist placements",
+        "where is the music placed",
+        "placements list"
+      ],
+      "title": "All verified playlist placements",
+      "text": "Verified placements for That Boy Hi Hat:\n• Zooted Zone — “360°: The Best Indie Music” (curator: Eric Alper) — #216 of 216, verified 2026-09-17 by full playlist scan.\n• Shaka Zulu — “New Rap Hits” (curator: Audiartist) — #21 of 140, verified 2026-09-17 by engine collect.\n• Zooted Zone — “New Rap Hits” (curator: Audiartist) — #30 of 140, verified 2026-09-17 by engine collect.\n• Doves & Diamonds — “New Rap Hits” (curator: Audiartist) — #31 of 140, verified 2026-09-17 by engine collect.\n• Zooted Zone — “No Label Needed” (curator: Flow) — #21 of 21, verified 2026-09-17 by playlist scan.\n\nIf a track isn't listed here, I have no verified placement data for it — that means unconfirmed, not absent.",
+      "tier": "placement-verified",
+      "observed_at": "2026-09-17",
+      "source": "placement-auto-threads/placements.json"
+    },
+    {
+      "id": "claims-unverified",
+      "keywords": [
+        "unverified",
+        "is it legit",
+        "really added",
+        "did they add",
+        "payola",
+        "scam playlist",
+        "claimed",
+        "legit",
+        "legit playlist",
+        "6rings",
+        "dj 6rings",
+        "real add",
+        "actually added"
+      ],
+      "title": "Claimed-but-unverified playlist adds",
+      "text": "These were claimed but could NOT be verified — treated as unconfirmed, not as placements:\n• “No Label Needed - Hip Hop & R&B | The Next Wave”: Curator (Flow) said Zooted Zone was added, 2026-09-14. Evidence: Two full playlist scans (2026-09-14, 2026-09-15) found 20 tracks, none by That Boy Hi Hat. Status: claimed_unverified.\n• “It's Goin”: Curator (Shan / DJ 6Rings) said a That Boy Hi Hat track was added, 2026-09-14. Evidence: Playlist could not be located via Spotify search to scan. Curator's site advertises paid adds; flagged payola-adjacent, no payment made. Status: claimed_unverified.\n• “WATCH THA GAP VOL.5”: Curator promised to add 'Ultimate' (spotify:track:2daugr3ni3r6jHH6UI57EK), 2026-09-14. Evidence: Playlist not located; promise only. Status: promised_unverified.",
+      "tier": "claim-flagged",
+      "observed_at": "2026-09-17",
+      "source": "cwi-learn/catalog.json"
+    },
+    {
+      "id": "rights-status",
+      "keywords": [
+        "rights",
+        "clean version",
+        "instrumental",
+        "one stop",
+        "pre-cleared",
+        "fcc safe",
+        "sync rights"
+      ],
+      "title": "Rights / versions status",
+      "text": "No clean/FCC-safe or instrumental versions exist in the catalog. No one-stop or pre-cleared rights claims are made. For licensing, contact hp@cumulativeweb.com.",
+      "tier": "catalog-verified",
+      "observed_at": "2026-09-17",
+      "source": "cwi-learn/catalog.json"
+    },
+    {
+      "id": "splits-diabolique",
+      "keywords": [
+        "diabolique splits",
+        "who gets paid diabolique",
+        "diabolique royalty",
+        "diabolique split"
+      ],
+      "title": "Diabolique — splits status",
+      "text": "Splits for “Diabolique” are UNVERIFIED as of 2026-09-18. I can't break down who gets paid until Black clears the splits data — anything else would be a guess.",
+      "tier": "unverified",
+      "observed_at": "2026-09-18",
+      "source": "standing rule: splits ship only on Black clearance"
+    },
+    {
+      "id": "contact",
+      "keywords": [
+        "contact",
+        "email",
+        "business inquiry",
+        "sync inquiry",
+        "how do i reach",
+        "book",
+        "license contact"
+      ],
+      "title": "Contact",
+      "text": "Business & sync inquiries: hp@cumulativeweb.com (official public contact, Cumulative Web Inc).",
+      "tier": "catalog-verified",
+      "observed_at": "2026-09-17",
+      "source": "cwi-learn/catalog.json"
+    },
+    {
+      "id": "bot-who",
+      "keywords": [
+        "who are you",
+        "are you human",
+        "what are you",
+        "your name",
+        "bot"
+      ],
+      "title": "Who am I",
+      "text": "I'm the CWI catalog bot — an automated assistant for Cumulative Web Inc. I only answer from verified catalog data, and I tell you when each fact was last checked. I can't help with anything outside the catalog.",
+      "tier": "static",
+      "observed_at": null,
+      "source": "product copy"
+    }
+  ]
+}
