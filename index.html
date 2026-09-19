@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask the CWI Catalog — live demo</title>
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #0b141a; color: #e9edef; margin: 0; }
+  header { background: #1f2c34; padding: 14px 16px; border-bottom: 1px solid #2a3942; }
+  header h1 { font-size: 17px; margin: 0; }
+  header p { font-size: 12px; color: #8696a0; margin: 4px 0 0; }
+  #chat { max-width: 640px; margin: 0 auto; padding: 16px 12px 90px; }
+  .msg { max-width: 82%; padding: 9px 12px; border-radius: 10px; margin: 8px 0; font-size: 14.5px; line-height: 1.45; white-space: pre-wrap; }
+  .user { background: #005c4b; margin-left: auto; }
+  .bot { background: #1f2c34; }
+  .meta { font-size: 11px; color: #8696a0; margin-top: 6px; }
+  .tier { display: inline-block; font-size: 10.5px; padding: 2px 8px; border-radius: 20px; margin-right: 6px; font-weight: 600; }
+  .t-verified { background: #1a5c38; color: #7ee2a8; }
+  .t-stale, .t-flagged, .t-unverified { background: #5c3d1a; color: #f0c46c; }
+  .t-none { background: #3a3f44; color: #aebac1; }
+  .t-static { background: #2a3942; color: #8696a0; }
+  #chips { max-width: 640px; margin: 0 auto; padding: 0 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { background: #1f2c34; border: 1px solid #2a3942; color: #e9edef; border-radius: 20px; padding: 7px 14px; font-size: 13px; cursor: pointer; }
+  .chip:hover { background: #2a3942; }
+  #bar { position: fixed; bottom: 0; left: 0; right: 0; background: #1f2c34; padding: 10px 12px; display: flex; gap: 8px; }
+  #bar input { flex: 1; background: #2a3942; border: none; border-radius: 20px; padding: 10px 16px; color: #e9edef; font-size: 15px; }
+  #bar button { background: #00a884; border: none; border-radius: 50%; width: 44px; height: 44px; color: #fff; font-size: 18px; cursor: pointer; }
+  footer { max-width: 640px; margin: 0 auto; padding: 0 12px 110px; font-size: 11.5px; color: #8696a0; }
+  footer a { color: #53bdeb; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🤖 Ask the CWI Catalog</h1>
+  <p>An automated bot for Cumulative Web Inc. Answers only from verified catalog data — every fact carries its evidence tier and last-checked date. This demo runs the exact engine that powers the WhatsApp bot.</p>
+</header>
+<div id="chat"></div>
+<div id="chips"></div>
+<div id="bar">
+  <input id="q" type="text" placeholder="Ask about a track, placement, streams…" maxlength="500" autocomplete="off">
+  <button id="send" aria-label="Send">➤</button>
+</div>
+<footer>
+  <p>Evidence tiers: <b>catalog-verified</b> (from cwi-learn/catalog.json) · <b>placement-verified</b> (full playlist scan) · <b>claim-flagged</b> (claimed, not verified — never a verdict) · <b>unverified</b> (known unknown). Values older than 48h are labeled <b>stale</b>, never refreshed silently. Dataset: <a href="data.json">data.json</a> · Engine: <a href="engine.js">engine.js</a> (zero dependencies, MIT-style open).</p>
+</footer>
+<script src="engine.js"></script>
+<script>
+(function () {
+  var DATA = null;
+  var chat = document.getElementById('chat');
+  var chips = document.getElementById('chips');
+  var input = document.getElementById('q');
+
+  var SUGGESTED = [
+    'Where is Zooted Zone placed?',
+    'How many streams does Zooted Zone have?',
+    'Who is That Boy Hi Hat?',
+    'Is the DJ 6Rings playlist legit?',
+    'How do I contact CWI?'
+  ];
+
+  function tierClass(tier, answered) {
+    if (!answered) return 't-none';
+    if (tier === 'catalog-verified' || tier === 'placement-verified') return 't-verified';
+    if (tier === 'static') return 't-static';
+    return 't-flagged';
+  }
+
+  function addMsg(text, who, result) {
+    var d = document.createElement('div');
+    d.className = 'msg ' + who;
+    d.textContent = text;
+    if (who === 'bot' && result) {
+      var m = document.createElement('div');
+      m.className = 'meta';
+      var s = document.createElement('span');
+      s.className = 'tier ' + tierClass(result.tier, result.answered);
+      s.textContent = result.answered ? result.tier : 'no verified data';
+      m.appendChild(s);
+      var f = document.createElement('span');
+      f.textContent = (result.freshness === 'fresh' ? '🟢 ' : result.freshness === 'stale' ? '🟡 ' : '⚪ ') + result.freshness_note;
+      m.appendChild(f);
+      d.appendChild(m);
+    }
+    chat.appendChild(d);
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+
+  function ask(text) {
+    if (!text.trim() || !DATA) return;
+    addMsg(text, 'user');
+    input.value = '';
+    var r = CatalogQA.answerQuestion(DATA, text);
+    addMsg(r.text, 'bot', r);
+  }
+
+  SUGGESTED.forEach(function (s) {
+    var b = document.createElement('button');
+    b.className = 'chip'; b.textContent = s;
+    b.onclick = function () { ask(s); };
+    chips.appendChild(b);
+  });
+
+  document.getElementById('send').onclick = function () { ask(input.value); };
+  input.addEventListener('keydown', function (e) { if (e.key === 'Enter') ask(input.value); });
+
+  fetch('data.json').then(function (r) { return r.json(); }).then(function (d) {
+    DATA = d;
+    addMsg("Hi — I'm the CWI catalog bot. 🤖 Ask me about That Boy Hi Hat's tracks, verified playlist placements, stream counts, or rights status. I only answer from checked data, and I'll tell you when each fact was last verified.", 'bot',
+      { answered: true, tier: 'static', freshness: 'static', freshness_note: 'greeting copy' });
+  }).catch(function () {
+    addMsg('Could not load the catalog dataset. Please try again later.', 'bot',
+      { answered: false, tier: 'none', freshness: 'static', freshness_note: 'load error' });
+  });
+})();
+</script>
+</body>
+</html>
