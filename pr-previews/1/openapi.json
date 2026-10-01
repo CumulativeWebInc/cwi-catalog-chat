@@ -1,0 +1,43 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Catalog Chat API",
+    "version": "1.0.0",
+    "description": "Conversational interface over the CWI catalog: ask questions about tracks, artists, and identifiers in plain language and get answers grounded in the verified catalog data. Public read-only API. All endpoints are static files served over HTTPS GET via GitHub Pages. No authentication required.",
+    "contact": {
+      "name": "Cumulative Web Inc",
+      "url": "https://cumulativeweb.com",
+      "email": "hp@cumulativeweb.com"
+    },
+    "license": {
+      "name": "See https://cumulativewebinc.github.io/cwi-legal/terms.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://cumulativewebinc.github.io/cwi-catalog-chat",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getProductPage",
+        "summary": "Product page",
+        "description": "Catalog chat UI",
+        "responses": {
+          "200": {
+            "description": "Product page",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
